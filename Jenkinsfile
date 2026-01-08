@@ -1,32 +1,37 @@
 pipeline{
     agent{
-        label'java-slave'
+        label 'java-slave'
     }
-
     environment{
         name = "Dinesh"
-        course = "Jenkins"
-        cloud = "AWS"
+        course = "AWS DEVOPS"
+
     }
-
     stages{
-        stage(firststage){
-            steps{
-                echo " Welcome to first stage!!!"
-                echo " Hii ${name}, Welcome to the course ${course} in the domain ${cloud}. All the BEST!! "
-                }
-            
-        }
 
-        stage(secondstage){
+        stage(Buildstage){
             environment{
-                cloud = "GCP"
+                srename = "Ram Charan"
+                application = "Java"
             }
             steps{
-                echo " Welcome to Second stage!!! "
-                echo " Welcome to the course ${cloud} and to the course ${course}"
+                echo "Welcome to Build Stage "
+                echo "In this stage we are building the application"
+                echo " Hi ${name}, Welcome to the ${course} course!!"
+                echo "This build stage is doing by ${srename} and after that approval by ${name}"
             }
-            
+        }
+        stage(DevStage){
+            environment{
+                devname = "Arjun"
+                cloud = "AWS"
+            }
+            steps{
+                echo "This is Developer Stage"
+                echo "In this stage we are deploying the code into Dev Environment by ${devname}"
+                echo "This Dev stage is doing by ${devname}"
+                echo "This stage is also approved by ${name}"
+            }
         }
     }
 }
