@@ -10,7 +10,7 @@ pipeline{
     }
 
     stages{
-        stage(First Stage){
+        stage(firststage){
             steps{
                 echo " Welcome to first stage!!!"
                 echo " Hii ${name}, Welcome to the course ${course} in the domain ${cloud}. All the BEST!! "
@@ -18,7 +18,7 @@ pipeline{
             
         }
 
-        stage(Second Stage){
+        stage(secondstage){
             environment{
                 cloud = "GCP"
             }
