@@ -1,35 +1,32 @@
-pipeline {
-    agent {
-        label 'java-slave'
+pipeline{
+    agent{
+        label'java-slave'
     }
 
-    environment {
-        course = "Kubernetes"
-        name   = "Dinesh"
-        cloud  = "AWS"
+    environment{
+        name = "Dinesh"
+        course = "Jenkins"
+        cloud = "AWS"
     }
 
-    stages {
-
-        stage('First Stage') {
-            environment {
-                Cloud = "GCP"
-            }
-            steps {
-                echo "*** This is a building stage *****"
-                echo "***** Welcome to ${name}"
-                echo "***** Welcome to ${course}, All the Best ${name}"
-                echo "**** Thanks for choosing ${Cloud} ******"
-            }
-        }   
-
-        stage('Second Stage') {
-            steps {
-                echo "*** This is a building stage *****"
-                echo "***** Welcome to ${name}"
-                echo "***** Welcome to ${course}, All the Best ${name}"
-            }
+    stages{
+        stage(First Stage){
+            steps{
+                echo " Welcome to first stage!!!"
+                echo " Hii ${name}, Welcome to the course ${course} in the domain ${cloud}. All the BEST!! "
+                }
+            
         }
 
+        stage(Second Stage){
+            environment{
+                cloud = "GCP"
+            }
+            steps{
+                echo " Welcome to Second stage!!! "
+                echo " Welcome to the course ${cloud} and to the course ${course}"
+            }
+            
+        }
     }
 }
